@@ -36,4 +36,22 @@ public class MyBinarySearchTree<K extends Comparable<K>> {
 		}
 		return value;
 	}
-}
+
+	public void search(K data) {
+		MyBinaryNode Output = searchRecursively(root,data);
+		System.out.println("Found" + Output);
+		
+	}
+	public MyBinaryNode searchRecursively(MyBinaryNode<K> temp, K key) {
+		if (temp == null || temp.key == key)
+			return temp;
+		
+		if (key.compareTo(temp.key) < 0) 
+			return searchRecursively(temp.left, key);
+		
+		if (key.compareTo(temp.key) > 0)
+			return searchRecursively(temp.right, key);
+		
+		return temp;
+		}
+	}
